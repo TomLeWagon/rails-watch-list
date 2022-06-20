@@ -1,0 +1,17 @@
+<%# <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light"> %>
+  <div class="home-banner">
+    <h1 class="display-1"> Tom's Movie List </h1>
+  </div>
+<%# </div> %>
+<div class="container">
+<%= link_to "New List", new_list_path, class: "btn btn-primary"%>
+  <ul class="list-group">
+    <% @lists.each do |list| %>
+      <li class="list-group-item">
+      <h3><%=  list.name %></h3>
+
+      <%= link_to "See details", list_path(list), class: "btn btn-primary"%>
+      </li>
+    <% end %>
+  </ul>
+</div>

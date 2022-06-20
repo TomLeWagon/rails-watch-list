@@ -1,0 +1,14 @@
+<h1 class="display-1"> Tom's Movie List </h1>
+<div class="container">
+<%= link_to "New Movie", new_movie_path, class: "btn btn-primary"%>
+  <ul class="list-group">
+    <% @movies.each do |movie| %>
+      <li class="list-group-item">
+      <h3><%= movie.title %></h3>
+      <p><strong> Overview: </strong> <%= movie.overview %></p>
+      <p><strong> Rating: </strong> <%= movie.rating %></p>
+      <%= link_to "See details", movie_path(movie), class: "btn btn-primary"%>
+      </li>
+    <% end %>
+  </ul>
+</div>

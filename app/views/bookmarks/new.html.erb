@@ -1,0 +1,9 @@
+<div class="bg-white rounded p-3 shadow">
+<h3>Add a movie to your <strong><%= @list.name %> </strong> list</h3> %>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.input :comment, placeholder: 'Enter a comment' %>
+      <%= f.association :movie, prompt: 'Select a movie' %>
+      <%= f.input :list_id, :as => :hidden, :input_html => { :value => @list.id } %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+</div>

@@ -1,8 +1,11 @@
 .home-banner {
-  background-image: url('https: //source.unsplash.com/random');
+  //background-image: url('https: //source.unsplash.com/random');
   background-size: cover;
-  height: 200px;
-  // color: #eee;
+  // height: 200px;
+  color: #eee;
+  background-position: center;
   text-align: center;
-  padding-top: 40vh;
+
+  padding: 150px 0;
+  margin-bottom: 32px;
 }

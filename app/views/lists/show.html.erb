@@ -1,21 +1,29 @@
- <div class="container">
+<div class="container">
   <div class="bannershow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @list.photo.key %>)">
-    <h3><%= @list.name %></h3>
+    <h2><strong><%= @list.name %></strong></h2>
 
   </div>
-
-  <%= link_to 'Add Movie', new_list_bookmark_path(@list), class: "btn btn-primary"%>
-  <%= link_to 'Back', lists_path, class: "btn btn-primary" %>
+  <div class="d-flex justify-content-around">
+  <%= link_to 'Add Movie', new_list_bookmark_path(@list), class: "btn btn-primary my-2"%>
+  <%= link_to 'Back', lists_path, class: "btn btn-primary my-2" %>
   <%= link_to "🔥 Delete",list_path(@list),
-    class: "btn btn-primary",
+    class: "btn btn-primary my-2",
     method: :delete,
     data: { confirm: "Are you sure?" }
   %>
+  </div>
 
   <ul class="list-group">
     <% @list.bookmarks.each do |bookmark| %>
-      <li class="list-group-item"><%= bookmark.movie_id %> <%= bookmark.comment %>
-      </li>
+    <div class="d-flex justify-content-center">
+        <li class="list-group-item "><strong>Movie:</strong> <%= Movie.find(bookmark.movie_id).title %>  <strong>Comment:</strong>  <%= bookmark.comment %>
+          <% if bookmark.photo.key?  %>
+            <div class="d-flex w-100 justify-content-center">
+              <%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %>
+            </div>
+          <% end  %>
+        </li>
+      </div>
     <% end %>
   </ul>
 

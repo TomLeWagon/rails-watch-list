@@ -8,9 +8,11 @@
   <ul class="list-group">
     <% @lists.each do |list| %>
       <li class="list-group-item" >
+      <% if list.photo.key?  %>
         <div class="cardshow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
           <h3><%= list.name %></h3>
         </div>
+        <% end  %>
       <%= link_to "See details", list_path(list), class: "btn btn-primary my-2"%>
       </li>
     <% end %>

@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'destroy all'
-Movie.destroy_all
+# puts 'destroy all'
+# Movie.destroy_all
 
 10.times do
   movie = Movie.create(
